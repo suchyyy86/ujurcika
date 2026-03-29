@@ -1,4 +1,4 @@
-import { MapPin, Phone, Clock, Facebook } from "lucide-react";
+import { MapPin, Phone, Clock, Facebook, Mail } from "lucide-react";
 
 const ContactSection = () => {
   return (
@@ -15,13 +15,15 @@ const ContactSection = () => {
           <div className="w-16 h-px bg-gold mx-auto" />
         </div>
 
-        <div className="grid md:grid-cols-3 gap-12 md:gap-8 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 mb-16">
           {/* Address */}
           <div className="text-center">
             <div className="w-14 h-14 rounded-full border border-gold/40 flex items-center justify-center mx-auto mb-6">
               <MapPin size={22} className="text-gold" />
             </div>
-            <h3 className="font-display italic text-xl text-dark mb-3">Adresa</h3>
+            <h3 className="font-display italic text-xl text-dark mb-3">
+              Adresa
+            </h3>
             <address className="not-italic">
               <p className="font-body text-base text-warm-gray leading-relaxed">
                 Divadelní 148/2
@@ -37,7 +39,9 @@ const ContactSection = () => {
             <div className="w-14 h-14 rounded-full border border-gold/40 flex items-center justify-center mx-auto mb-6">
               <Phone size={22} className="text-gold" />
             </div>
-            <h3 className="font-display italic text-xl text-dark mb-3">Telefon</h3>
+            <h3 className="font-display italic text-xl text-dark mb-3">
+              Telefon
+            </h3>
             <a
               href="tel:+420725961099"
               className="font-body text-base text-warm-gray hover:text-gold transition-colors"
@@ -49,12 +53,30 @@ const ContactSection = () => {
             </p>
           </div>
 
+          {/* Email */}
+          <div className="text-center">
+            <div className="w-14 h-14 rounded-full border border-gold/40 flex items-center justify-center mx-auto mb-6">
+              <Mail size={22} className="text-gold" />
+            </div>
+            <h3 className="font-display italic text-xl text-dark mb-3">
+              E-mail
+            </h3>
+            <a
+              href="mailto:restauraceujurcika@seznam.cz"
+              className="font-body text-base text-warm-gray hover:text-gold transition-colors break-all"
+            >
+              restauraceujurcika@seznam.cz
+            </a>
+          </div>
+
           {/* Hours */}
           <div className="text-center">
             <div className="w-14 h-14 rounded-full border border-gold/40 flex items-center justify-center mx-auto mb-6">
               <Clock size={22} className="text-gold" />
             </div>
-            <h3 className="font-display italic text-xl text-dark mb-3">Otevírací doba</h3>
+            <h3 className="font-display italic text-xl text-dark mb-3">
+              Otevírací doba
+            </h3>
             <div className="font-body text-base text-warm-gray leading-relaxed space-y-1">
               <p>Po — Čt: 10:00 — 22:00</p>
               <p>Pá: 10:00 — 23:00</p>
@@ -87,8 +109,8 @@ const ContactSection = () => {
             </p>
             <p className="font-body text-base text-cream/70 leading-relaxed mb-8">
               Nabízíme možnost rezervace stolů pro rodinné oslavy, srazy, výročí
-              i firemní akce. Soukromé prostory Loveckého salonku pojmou
-              až 30 osob.
+              i firemní akce. Soukromé prostory Loveckého salonku pojmou až 30
+              osob.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a

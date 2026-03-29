@@ -58,20 +58,6 @@ const SpacesSection = () => {
             </div>
           ))}
         </div>
-
-        {/* Beer info */}
-        <div className="mt-20 text-center max-w-2xl mx-auto">
-          <h3 className="font-display italic text-2xl text-cream mb-4">
-            Tankové pivo
-          </h3>
-          <p className="font-body text-warm-gray leading-relaxed mb-4">
-            Tankovému se nic nevyrovná. Vyznačuje se vysokou jakostí
-            a hlavně výtečnou plnou chutí. Čepujeme Radegast 12° a Pilsner Urquell.
-          </p>
-          <p className="font-body text-sm text-gold">
-            Tip: Tankové pivo sebou — 4 piva (PET 2 l) za 165,- Kč
-          </p>
-        </div>
       </div>
     </section>
   );

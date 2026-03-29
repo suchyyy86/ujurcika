@@ -25,16 +25,24 @@ const Footer = () => {
               {[
                 { label: "O nás", href: "#o-nas" },
                 { label: "Jídelní lístek", href: "#menu" },
+                { label: "Slavnostní menu", href: "#slavnostni-menu" },
                 { label: "Náš příběh", href: "#pribeh" },
                 { label: "Prostory", href: "#prostory" },
                 { label: "Kontakt", href: "#kontakt" },
-                { label: "Obědové menu", href: "https://www.menicka.cz/4947-kulturni-zarizeni-u-jurcika.html" },
+                {
+                  label: "Obědové menu",
+                  href: "https://www.menicka.cz/4947-kulturni-zarizeni-u-jurcika.html",
+                },
               ].map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
                   target={link.href.startsWith("http") ? "_blank" : undefined}
-                  rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  rel={
+                    link.href.startsWith("http")
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
                   className="font-body text-sm text-cream/60 hover:text-gold transition-colors"
                 >
                   {link.label}
@@ -49,13 +57,24 @@ const Footer = () => {
               Kontakt
             </p>
             <address className="not-italic">
-              <p className="font-body text-sm text-cream/80 mb-1">Divadelní 148/2</p>
-              <p className="font-body text-sm text-cream/80 mb-4">737 01 Český Těšín</p>
+              <p className="font-body text-sm text-cream/80 mb-1">
+                Divadelní 148/2
+              </p>
+              <p className="font-body text-sm text-cream/80 mb-4">
+                737 01 Český Těšín
+              </p>
               <a
                 href="tel:+420725961099"
                 className="font-body text-sm text-gold hover:text-cream transition-colors"
               >
                 +420 725 961 099
+              </a>
+              <br />
+              <a
+                href="mailto:restauraceujurcika@seznam.cz"
+                className="font-body text-sm text-cream/60 hover:text-gold transition-colors"
+              >
+                restauraceujurcika@seznam.cz
               </a>
             </address>
             <div className="mt-6">

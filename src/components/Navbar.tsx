@@ -4,6 +4,7 @@ import { Menu, X, UtensilsCrossed } from "lucide-react";
 const navLinks = [
   { label: "O nás", href: "#o-nas" },
   { label: "Jídelní lístek", href: "#menu" },
+  { label: "Slavnostní menu", href: "#slavnostni-menu" },
   { label: "Náš příběh", href: "#pribeh" },
   { label: "Prostory", href: "#prostory" },
   { label: "Kontakt", href: "#kontakt" },
@@ -22,7 +23,9 @@ const Navbar = () => {
   // Lock body scroll when menu open
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [isOpen]);
 
   return (
@@ -43,7 +46,9 @@ const Navbar = () => {
 
         {/* Logo */}
         <a href="#" className="absolute left-1/2 -translate-x-1/2 z-[60]">
-          <span className={`font-display italic text-cream transition-all duration-500 drop-shadow-lg ${scrolled ? "text-xl" : "text-2xl"}`}>
+          <span
+            className={`font-display italic text-cream transition-all duration-500 drop-shadow-lg ${scrolled ? "text-xl" : "text-2xl"}`}
+          >
             U Jurčíka
           </span>
         </a>
@@ -71,7 +76,9 @@ const Navbar = () => {
       {/* Fullscreen menu overlay */}
       <div
         className={`fixed inset-0 z-[55] bg-dark flex flex-col items-center justify-center gap-8 transition-all duration-500 ${
-          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          isOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
         }`}
       >
         {navLinks.map((link) => (

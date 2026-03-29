@@ -1,8 +1,8 @@
 const milestones = [
-  { year: "1930", text: "Založení hospody v Českém Těšíně" },
-  { year: "1960", text: "Přestavba a rozšíření prostor" },
-  { year: "1990", text: "Obnova tradice po revoluci" },
-  { year: "2010", text: "Modernizace kuchyně a interiéru" },
+  { year: "1930", text: "Otevření hospody Na Rozvoji" },
+  { year: "1950", text: "Převzetí státním podnikem" },
+  { year: "1990", text: "Uzavření z hygienických důvodů" },
+  { year: "1995", text: "Koupě v dražbě novými majiteli" },
   { year: "2025", text: "95 let tradice a zážitků" },
 ];
 
@@ -13,10 +13,10 @@ const StorySection = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <p className="font-body text-sm uppercase tracking-[0.3em] text-gold mb-6">
-            Naše historie
+            Historie
           </p>
           <h2 className="font-display italic text-3xl md:text-5xl text-dark mb-4">
-            Náš příběh
+            1930 — 2025
           </h2>
           <div className="w-16 h-px bg-gold mx-auto" />
         </div>
@@ -40,29 +40,58 @@ const StorySection = () => {
           </div>
         </div>
 
-        {/* Story text + image */}
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        {/* Historic photo - Rozvoj */}
+        <div className="mb-16">
+          <img
+            src="https://ujurcika.cz/wp-content/uploads/2025/03/Rozvoj-a-Jurcik-bez-napisu-1024x649.jpg"
+            alt="Sídliště Rozvoj a hospoda Na Rozvoji"
+            className="w-full max-h-[500px] object-cover"
+            loading="lazy"
+          />
+        </div>
+
+        {/* Story text blocks */}
+        <div className="grid md:grid-cols-2 gap-12 items-start mb-16">
           <div>
             <p className="font-body text-base text-warm-gray leading-relaxed mb-6">
-              Kulturní zařízení U Jurčíka je tradiční česká hospoda s téměř
-              stoletou historií. Od svého založení v roce 1930 prošla mnoha
-              proměnami, ale vždy si zachovala svou přátelskou atmosféru
-              a pohostinnost.
+              Ve 20.–30. letech minulého století bylo vybudováno sídliště Rozvoj
+              a v roce 1930 byla otevřena hospoda Na Rozvoji (dnešní Kulturní
+              zařízení U Jurčíka) se samostatnou místností s kulečníkovým stolem
+              a vkusným vybavením, typickým pro 30. léta minulého století.
             </p>
             <p className="font-body text-base text-warm-gray leading-relaxed mb-6">
-              Dnes nabízíme nejen výtečnou domácí kuchyni a znamenité tankové
-              pivo, ale i jedinečné prostory — od útulného Loveckého salonku
-              po letní zahrádku ve stínu stoletých kaštanů.
+              Novým majitelem byl pan Glajcar, provozovatelem se stal Maxilián
+              Jurčík, kterému na základě výsledku kolaudačního řízení udělil
+              okresní úřad v Českém Těšíně povolení pro hostinské a výčepní
+              místnosti od 4. října 1930. Tuto hospodu provozoval až do 50. let.
             </p>
             <p className="font-body text-base text-warm-gray leading-relaxed">
-              Na vaši návštěvu se těší celý kolektiv profesionálů Kulturního
-              zařízení U Jurčíka.
+              Rodina Glajcarova byla donucena komunistickým režimem prodat
+              hospodu státnímu podniku „Restaurace a Jídelny". Novým majitelem
+              se stal stát.
             </p>
           </div>
           <div className="relative overflow-hidden">
             <img
+              src="https://ujurcika.cz/wp-content/uploads/2025/03/U-Jurcika-1970-7x10-1-1024x683.jpg"
+              alt="U Jurčíka kolem roku 1970"
+              className="w-full h-96 object-cover"
+              loading="lazy"
+            />
+            <div className="absolute bottom-6 left-6 bg-dark/80 px-4 py-2">
+              <p className="font-display italic text-cream text-sm">
+                U Jurčíka, 70. léta
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Second block */}
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+          <div className="relative overflow-hidden md:order-1">
+            <img
               src="https://ujurcika.cz/wp-content/uploads/2025/03/Jurcik-7x10-2022-vyrez-3.jpg"
-              alt="Budova U Jurčíka"
+              alt="Restaurace U Jurčíka dnes"
               className="w-full h-96 object-cover"
               loading="lazy"
             />
@@ -71,6 +100,25 @@ const StorySection = () => {
                 Divadelní 148/2, Český Těšín
               </p>
             </div>
+          </div>
+          <div className="md:order-2">
+            <p className="font-body text-base text-warm-gray leading-relaxed mb-6">
+              Příjemná hospůdka se časem změnila na pivnici s nevkusným nábytkem
+              s modrým umakartovým obložením. Používání WC bylo jen pro otrlé
+              hosty. Než se budova stačila zcela rozpadnout, přišla 90. léta
+              a hospoda byla z hygienických důvodů uzavřena.
+            </p>
+            <p className="font-body text-base text-warm-gray leading-relaxed mb-6">
+              Současní majitelé převzali hospodu v roce 1995 prostřednictvím
+              dražby. Novým majitelům se díky celkové rekonstrukci podařilo
+              z původní ruiny vybudovat vskutku stylovou a útulnou hospodu
+              s jedinečnou atmosférou.
+            </p>
+            <p className="font-body text-base text-warm-gray leading-relaxed">
+              Byla přistavěna nová a hodně oblíbená prosklená veranda, přibyl
+              „Lovecký salonek", zvětšena a upravena letní zahrádka s příjemným
+              posezením pod téměř stoletými kaštany.
+            </p>
           </div>
         </div>
       </div>
