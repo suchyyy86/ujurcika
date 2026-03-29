@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { UtensilsCrossed } from "lucide-react";
 
 type MenuItem = { name: string; desc?: string; price: string };
 
-const menuData: Record<string, MenuItem[]> = {
+const menuDataCZ: Record<string, MenuItem[]> = {
   "Jurčíkova kuchyně": [
     { name: "Svíčková na smetaně", desc: "s brusinkami a houskovým knedlíkem", price: "249,-" },
     { name: "Vepřo - knedlo - zelo", desc: "z vepřové panenky", price: "229,-" },
@@ -48,6 +49,52 @@ const menuData: Record<string, MenuItem[]> = {
   ],
 };
 
+const menuDataPL: Record<string, MenuItem[]> = {
+  "Jurčíkova kuchnia": [
+    { name: "Polędwica wołowa w sosie śmietanowym", desc: "z żurawiną i knedlami", price: "249,-" },
+    { name: "Polędwiczki wieprzowe", desc: "kapusta kiszona, knedle", price: "229,-" },
+    { name: "Pikantny szaszłyk z grilla Barbecue", desc: "polędwica wieprzowa, kurczak, boczek, kiełbasa, papryka", price: "239,-" },
+    { name: "Polędwiczki pakowane w słoninie", desc: "z sosem pieprzowym", price: "209,-" },
+    { name: "Golonka wieprzowa", desc: "pieczone do złotego koloru (ok. 900 g)", price: "289,-" },
+    { name: "Kluszeczki z bryndzą i słoniną", desc: "350 g", price: "169,-" },
+    { name: "Marynowane żeberka wieprzowe", desc: "chrzan, musztarda, piperon, chleb (500 g)", price: "249,-" },
+    { name: "Burger wołowy z cheddarem", desc: "karmelizowana cebula, frytki, sos BBQ", price: "239,-" },
+    { name: "Sznycel z kurczaka lub wieprzowiny", desc: "150 g", price: "149,-" },
+  ],
+  "Przekąski piwne": [
+    { name: "Tatar wołowy, 2 grzanki", desc: "150 g", price: "229,-" },
+    { name: "Grzanka z mięsem ognistym", price: "125,-" },
+    { name: "Skrzydełka z kurczaka BBQ", desc: "sos diabelski, pieczywo, 500 g", price: "159,-" },
+    { name: "Placki ziemniaczane", desc: "200 g", price: "89,-" },
+    { name: "Mix kotlecików drobiowych i wieprzowych", desc: "ogórek kiszony, chleb (600 g)", price: "550,-" },
+    { name: 'Kiełbasa z cebulą „utopenec"', desc: "w zalewie octowej, chleb", price: "89,-" },
+    { name: "Nasza deska", desc: "wędzone mięso, kiełbasa, ser, piperon", price: "185,-" },
+    { name: "Domowe chipsy ziemniaczane", desc: "z pikantnym dipem", price: "85,-" },
+  ],
+  "Zupy": [
+    { name: "Czosnkowa", desc: "szynka, ser, jajko, grzanki", price: "59,-" },
+    { name: "Losztycka śmierdziucha", desc: "czosnkowa, kiełbasa, ser ołomuniecki", price: "59,-" },
+    { name: "Zupa flaków", desc: "0,4 l", price: "99,-" },
+    { name: "Rosół z makaronem", desc: "z kluskami wątrobowymi i warzywami", price: "59,-" },
+    { name: "Zupa dnia", price: "45,-" },
+  ],
+  "Sery, Serki ołomunieckie": [
+    { name: "Serki smażone z szynką w panierce na grzance", desc: "1 ks", price: "109,-" },
+    { name: "Serki smażone z szynką w panierce", desc: "zestaw surówek (2 ks)", price: "219,-" },
+    { name: "Serki z szynką w placku ziemniaczanym", desc: "2 ks", price: "219,-" },
+    { name: "Smażony ser", desc: "120 g", price: "149,-" },
+    { name: "Ser pleśniowy Camembert w placku ziemniaczanym", desc: "120 g", price: "219,-" },
+    { name: "Zapiekane brokuły z sosem serowym", desc: "250 g", price: "119,-" },
+  ],
+  "Desery": [
+    { name: "Naleśniki z nutellą", desc: "i bitą śmietaną (2 ks)", price: "89,-" },
+    { name: "Naleśniki z owoców leśnych", desc: "lodami i bitą śmietaną (2 ks)", price: "129,-" },
+    { name: "Ciepłe owoce leśne z lodami", desc: "i bitą śmietaną", price: "99,-" },
+    { name: "Suflet czekoladowy z lodami", desc: "bitą śmietaną i owocami", price: "85,-" },
+    { name: "Łody", desc: "z bitą śmietaną i polewą", price: "75,-" },
+  ],
+};
+
 const foodImages = [
   "https://ujurcika.cz/wp-content/uploads/elementor/thumbs/Veprove-koleno-WEB-2-r3a1okxrw5l63ehg8tqmk8750qwfujlef9qb05skb4.jpg",
   "https://ujurcika.cz/wp-content/uploads/elementor/thumbs/Cesnekacka2-r3a1okxrw5l63ehg8tqmk8750qwfujlef9qb05skb4.jpg",
@@ -55,23 +102,75 @@ const foodImages = [
   "https://ujurcika.cz/wp-content/uploads/elementor/thumbs/Smazak-jurcik-r3a1okxrw5l63ehg8tqmk8750qwfujlef9qb05skb4.jpg",
 ];
 
-const categories = Object.keys(menuData);
-
 const MenuSection = () => {
+  const [lang, setLang] = useState<"cz" | "pl">("cz");
+  const menuData = lang === "cz" ? menuDataCZ : menuDataPL;
+  const categories = Object.keys(menuData);
   const [activeCategory, setActiveCategory] = useState(categories[0]);
+
+  const handleLangSwitch = (newLang: "cz" | "pl") => {
+    setLang(newLang);
+    const newCategories = Object.keys(newLang === "cz" ? menuDataCZ : menuDataPL);
+    setActiveCategory(newCategories[0]);
+  };
 
   return (
     <section id="menu" className="py-24 md:py-32 bg-dark">
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8">
           <p className="font-body text-sm uppercase tracking-[0.3em] text-gold mb-6">
-            Naše nabídka
+            {lang === "cz" ? "Naše nabídka" : "Nasza oferta"}
           </p>
           <h2 className="font-display italic text-3xl md:text-5xl text-cream mb-4">
-            Jídelní lístek
+            {lang === "cz" ? "Jídelní lístek" : "Karta dań"}
           </h2>
           <div className="w-16 h-px bg-gold mx-auto" />
+        </div>
+
+        {/* Obědové menu banner */}
+        <div className="mb-12 flex justify-center">
+          <a
+            href="https://www.menicka.cz/4947-kulturni-zarizeni-u-jurcika.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-gold/15 border border-gold/40 hover:bg-gold/25 hover:border-gold transition-all group"
+          >
+            <UtensilsCrossed size={20} className="text-gold" />
+            <div className="text-left">
+              <span className="block font-body text-sm uppercase tracking-[0.15em] text-gold group-hover:text-cream transition-colors">
+                {lang === "cz" ? "Obědové menu dnes" : "Menu obiadowe dzisiaj"}
+              </span>
+              <span className="block font-body text-xs text-cream/50 mt-0.5">
+                menicka.cz
+              </span>
+            </div>
+            <span className="text-gold text-lg ml-2">→</span>
+          </a>
+        </div>
+
+        {/* Language toggle */}
+        <div className="flex justify-center gap-1 mb-12">
+          <button
+            onClick={() => handleLangSwitch("cz")}
+            className={`px-5 py-2 font-body text-xs uppercase tracking-[0.15em] transition-all ${
+              lang === "cz"
+                ? "bg-gold/20 text-gold border border-gold/40"
+                : "text-cream/40 border border-cream/10 hover:text-cream/70 hover:border-cream/30"
+            }`}
+          >
+            Česky
+          </button>
+          <button
+            onClick={() => handleLangSwitch("pl")}
+            className={`px-5 py-2 font-body text-xs uppercase tracking-[0.15em] transition-all ${
+              lang === "pl"
+                ? "bg-gold/20 text-gold border border-gold/40"
+                : "text-cream/40 border border-cream/10 hover:text-cream/70 hover:border-cream/30"
+            }`}
+          >
+            Po polsku
+          </button>
         </div>
 
         {/* Food images strip */}
@@ -107,7 +206,7 @@ const MenuSection = () => {
 
         {/* Menu items */}
         <div className="max-w-2xl mx-auto">
-          {menuData[activeCategory].map((item, i) => (
+          {menuData[activeCategory]?.map((item, i) => (
             <div
               key={i}
               className="flex items-baseline gap-2 py-4 border-b border-cream/10 last:border-0"
@@ -127,25 +226,15 @@ const MenuSection = () => {
           ))}
         </div>
 
-        {/* Links */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-12">
-          <a
-            href="https://ujurcika.cz/polsky/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-body text-sm uppercase tracking-[0.15em] text-cream/50 hover:text-gold transition-colors"
-          >
-            🇵🇱 Menu po polsku
-          </a>
-          <span className="text-cream/20 hidden sm:inline">|</span>
-          <a
-            href="https://www.menicka.cz/4947-kulturni-zarizeni-u-jurcika.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-body text-sm uppercase tracking-[0.15em] text-cream/50 hover:text-gold transition-colors"
-          >
-            Obědové menu →
-          </a>
+        {/* Tip */}
+        <div className="mt-16 text-center max-w-lg mx-auto p-6 border border-cream/10">
+          <p className="font-display italic text-lg text-cream mb-2">Tip pro Vás</p>
+          <p className="font-body text-sm text-cream/70">
+            Tankové pivo sebou (platba pouze v hotovosti)
+          </p>
+          <p className="font-body text-sm text-gold mt-1">
+            4 piva (PET 2 l) — 165,- Kč
+          </p>
         </div>
       </div>
     </section>

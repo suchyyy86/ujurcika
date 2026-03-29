@@ -11,21 +11,21 @@ const HeroSection = () => {
           className="w-full h-full object-cover"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-dark/50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-dark/70 via-dark/60 to-dark/80" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 text-center px-6">
-        <p className="font-body text-sm uppercase tracking-[0.3em] text-gold mb-6">
+        <p className="font-body text-sm uppercase tracking-[0.3em] text-gold mb-6 drop-shadow-lg">
           Český Těšín
         </p>
-        <h1 className="font-display italic text-5xl md:text-7xl lg:text-8xl text-cream mb-4">
+        <h1 className="font-display italic text-5xl md:text-7xl lg:text-8xl text-white mb-4 drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]">
           Od roku 1930
         </h1>
-        <p className="font-display text-xl md:text-2xl text-cream/80 mb-2">
+        <p className="font-display text-xl md:text-2xl text-white/90 mb-2 drop-shadow-lg">
           Kulturní zařízení U Jurčíka
         </p>
-        <p className="font-body text-sm text-cream/60 tracking-wider mt-4">
+        <p className="font-body text-sm text-cream/80 tracking-wider mt-4 drop-shadow-lg">
           95 let zážitků, tradic a historie
         </p>
       </div>

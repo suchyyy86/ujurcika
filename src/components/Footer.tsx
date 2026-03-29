@@ -2,18 +2,12 @@ import { Facebook } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer id="kontakt" className="bg-dark border-t border-cream/10">
+    <footer className="bg-dark border-t border-cream/10">
       {/* Main footer */}
       <div className="max-w-6xl mx-auto px-6 py-20">
         <div className="grid md:grid-cols-3 gap-12 md:gap-8">
           {/* Brand */}
           <div className="text-center md:text-left">
-            <img
-              src="https://ujurcika.cz/wp-content/uploads/2025/03/Jurcik-7x10-2022-vyrez-3.jpg"
-              alt="U Jurčíka"
-              className="h-16 w-16 rounded-full object-cover mx-auto md:mx-0 mb-4"
-              loading="lazy"
-            />
             <p className="font-display italic text-2xl text-cream mb-2">
               U Jurčíka
             </p>
@@ -33,6 +27,7 @@ const Footer = () => {
                 { label: "Jídelní lístek", href: "#menu" },
                 { label: "Náš příběh", href: "#pribeh" },
                 { label: "Prostory", href: "#prostory" },
+                { label: "Kontakt", href: "#kontakt" },
                 { label: "Obědové menu", href: "https://www.menicka.cz/4947-kulturni-zarizeni-u-jurcika.html" },
               ].map((link) => (
                 <a
@@ -81,7 +76,7 @@ const Footer = () => {
       {/* Bottom bar */}
       <div className="border-t border-cream/10 py-6">
         <p className="font-body text-xs text-cream/30 text-center">
-          © 2025 Kulturní zařízení U Jurčíka. Všechna práva vyhrazena.
+          © 2026 Kulturní zařízení U Jurčíka. Všechna práva vyhrazena.
         </p>
       </div>
     </footer>
