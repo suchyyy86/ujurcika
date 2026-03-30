@@ -24,24 +24,24 @@ const IntroSection = () => {
       <div className="max-w-6xl mx-auto px-6 mt-16 grid md:grid-cols-2 gap-6">
         <div className="relative overflow-hidden group">
           <img
-            src="/images/Interier-2.jpg"
+            src="/images/restaurace-vchod.jpg"
+            alt="Vchod do restaurace U Jurčíka"
+            className="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105"
+            loading="lazy"
+          />
+          <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-dark/80 to-transparent">
+            <p className="font-display italic text-xl text-cream">Vstupte k nám</p>
+          </div>
+        </div>
+        <div className="relative overflow-hidden group">
+          <img
+            src="/images/restaurace-chodba.jpg"
             alt="Interiér restaurace U Jurčíka"
             className="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105"
             loading="lazy"
           />
           <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-dark/80 to-transparent">
-            <p className="font-display italic text-xl text-cream">Tradiční interiér</p>
-          </div>
-        </div>
-        <div className="relative overflow-hidden group">
-          <img
-            src="/images/veprove-koleno.jpg"
-            alt="Vepřové koleno — specialita U Jurčíka"
-            className="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105"
-            loading="lazy"
-          />
-          <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-dark/80 to-transparent">
-            <p className="font-display italic text-xl text-cream">Domácí kuchyně</p>
+            <p className="font-display italic text-xl text-cream">Stylová atmosféra</p>
           </div>
         </div>
       </div>

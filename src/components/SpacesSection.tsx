@@ -1,27 +1,122 @@
+import { useState, useEffect, useCallback } from "react";
+
 const spaces = [
   {
     title: "Restaurace",
     desc: "Tradiční česká restaurace s přátelskou atmosférou a domácí kuchyní.",
-    image: "/images/Interier-2.jpg",
+    images: [
+      "/images/Interier-2.jpg",
+      "/images/restaurace-interier-3.jpg",
+      "/images/restaurace-vycep.jpg",
+      "/images/restaurace-stamgast.jpg",
+      "/images/restaurace-tanky.jpg",
+      "/images/restaurace-dekorace.jpg",
+    ],
   },
   {
     title: "Lovecký salonek",
-    desc: "Rodinné oslavy a společenské akce v soukromí stylového salonku.",
-    image:
-      "/images/Budova-Jurcik-JPG.jpg",
+    desc: "Rodinné oslavy a společenské akce v soukromí stylového salonku. Až 35 osob.",
+    images: [
+      "/images/salonek-35osob.jpg",
+      "/images/salonek-oslava.jpg",
+      "/images/salonek-separe.jpg",
+      "/images/salonek-akce.jpg",
+    ],
   },
   {
     title: "Prosklená veranda",
     desc: "Posezení u dobrého jídla na prosklené a v zimě vyhřívané verandě.",
-    image: "/images/Veranda5-1.jpg",
+    images: [
+      "/images/veranda-2025.jpg",
+      "/images/veranda-2.jpg",
+      "/images/veranda-4.jpg",
+      "/images/veranda-6.jpg",
+      "/images/veranda-7.jpg",
+    ],
   },
   {
     title: "Letní zahrádka",
     desc: "Příjemné posezení ve stínu pod téměř stoletými vzrostlými kaštany.",
-    image:
-      "/images/Jurcik-7x10-2022-vyrez-3.jpg",
+    images: [
+      "/images/zahradka-jaro.jpg",
+      "/images/zahradka-2025.jpg",
+      "/images/zahradka-4.jpg",
+      "/images/zahradka-5.jpg",
+    ],
   },
 ];
+
+const INTERVAL = 4000;
+
+function SpaceCard({
+  space,
+  offset,
+}: {
+  space: (typeof spaces)[0];
+  offset: number;
+}) {
+  const [index, setIndex] = useState(0);
+  const count = space.images.length;
+
+  const next = useCallback(
+    () => setIndex((i) => (i + 1) % count),
+    [count],
+  );
+
+  useEffect(() => {
+    const id = setInterval(next, INTERVAL + offset);
+    return () => clearInterval(id);
+  }, [next, offset]);
+
+  return (
+    <div className="group relative overflow-hidden">
+      <div className="aspect-[3/4] relative overflow-hidden">
+        {space.images.map((src, i) => (
+          <img
+            key={src}
+            src={src}
+            alt={`${space.title} — foto ${i + 1}`}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+              i === index ? "opacity-100" : "opacity-0"
+            }`}
+            loading={i === 0 ? "eager" : "lazy"}
+          />
+        ))}
+      </div>
+
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/20 to-transparent pointer-events-none" />
+
+      {/* Dots */}
+      {count > 1 && (
+        <div className="absolute top-4 left-0 right-0 flex justify-center gap-1.5 z-10">
+          {space.images.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setIndex(i)}
+              aria-label={`Foto ${i + 1} z ${count}`}
+              className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                i === index
+                  ? "bg-gold w-4"
+                  : "bg-cream/40 hover:bg-cream/70"
+              }`}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* Text */}
+      <div className="absolute bottom-0 left-0 right-0 p-6">
+        <h3 className="font-display italic text-xl text-cream mb-2">
+          {space.title}
+        </h3>
+        <p className="font-body text-sm text-cream/70 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          {space.desc}
+        </p>
+      </div>
+    </div>
+  );
+}
 
 const SpacesSection = () => {
   return (
@@ -39,28 +134,7 @@ const SpacesSection = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {spaces.map((space, i) => (
-            <div
-              key={i}
-              className="group relative overflow-hidden cursor-pointer"
-            >
-              <div className="aspect-[3/4] overflow-hidden">
-                <img
-                  src={space.image}
-                  alt={space.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  loading="lazy"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/20 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="font-display italic text-xl text-cream mb-2">
-                  {space.title}
-                </h3>
-                <p className="font-body text-sm text-cream/70 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  {space.desc}
-                </p>
-              </div>
-            </div>
+            <SpaceCard key={space.title} space={space} offset={i * 800} />
           ))}
         </div>
       </div>
