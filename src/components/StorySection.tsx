@@ -43,7 +43,7 @@ const StorySection = () => {
         {/* Historic photo - Rozvoj */}
         <div className="mb-16">
           <img
-            src="https://ujurcika.cz/wp-content/uploads/2025/03/Rozvoj-a-Jurcik-bez-napisu-1024x649.jpg"
+            src="/images/Rozvoj-a-Jurcik-bez-napisu-1024x649.jpg"
             alt="Sídliště Rozvoj a hospoda Na Rozvoji"
             className="w-full max-h-[500px] object-cover"
             loading="lazy"
@@ -73,7 +73,7 @@ const StorySection = () => {
           </div>
           <div className="relative overflow-hidden">
             <img
-              src="https://ujurcika.cz/wp-content/uploads/2025/03/U-Jurcika-1970-7x10-1-1024x683.jpg"
+              src="/images/U-Jurcika-1970-7x10-1-1024x683.jpg"
               alt="U Jurčíka kolem roku 1970"
               className="w-full h-96 object-cover"
               loading="lazy"
@@ -90,7 +90,7 @@ const StorySection = () => {
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <div className="relative overflow-hidden md:order-1">
             <img
-              src="https://ujurcika.cz/wp-content/uploads/2025/03/Jurcik-7x10-2022-vyrez-3.jpg"
+              src="/images/Jurcik-7x10-2022-vyrez-3.jpg"
               alt="Restaurace U Jurčíka dnes"
               className="w-full h-96 object-cover"
               loading="lazy"
@@ -105,14 +105,14 @@ const StorySection = () => {
             <p className="font-body text-base text-warm-gray leading-relaxed mb-6">
               Příjemná hospůdka se časem změnila na pivnici s nevkusným nábytkem
               s modrým umakartovým obložením. Používání WC bylo jen pro otrlé
-              hosty. Než se budova stačila zcela rozpadnout, přišla 90. léta
-              a hospoda byla z hygienických důvodů uzavřena.
+              hosty. Než se budova stačila zcela rozpadnout, přišla 90. léta a
+              hospoda byla z hygienických důvodů uzavřena.
             </p>
             <p className="font-body text-base text-warm-gray leading-relaxed mb-6">
               Současní majitelé převzali hospodu v roce 1995 prostřednictvím
-              dražby. Novým majitelům se díky celkové rekonstrukci podařilo
-              z původní ruiny vybudovat vskutku stylovou a útulnou hospodu
-              s jedinečnou atmosférou.
+              dražby. Novým majitelům se díky celkové rekonstrukci podařilo z
+              původní ruiny vybudovat vskutku stylovou a útulnou hospodu s
+              jedinečnou atmosférou.
             </p>
             <p className="font-body text-base text-warm-gray leading-relaxed">
               Byla přistavěna nová a hodně oblíbená prosklená veranda, přibyl

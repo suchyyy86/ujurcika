@@ -24,7 +24,7 @@ const IntroSection = () => {
       <div className="max-w-6xl mx-auto px-6 mt-16 grid md:grid-cols-2 gap-6">
         <div className="relative overflow-hidden group">
           <img
-            src="https://ujurcika.cz/wp-content/uploads/2025/03/Interier-2.jpg"
+            src="/images/Interier-2.jpg"
             alt="Interiér restaurace U Jurčíka"
             className="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105"
             loading="lazy"
@@ -35,7 +35,7 @@ const IntroSection = () => {
         </div>
         <div className="relative overflow-hidden group">
           <img
-            src="https://ujurcika.cz/wp-content/uploads/elementor/thumbs/Veprove-koleno-WEB-2-r3a1okxrw5l63ehg8tqmk8750qwfujlef9qb05skb4.jpg"
+            src="/images/veprove-koleno.jpg"
             alt="Vepřové koleno — specialita U Jurčíka"
             className="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105"
             loading="lazy"

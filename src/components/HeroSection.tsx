@@ -6,7 +6,7 @@ const HeroSection = () => {
       {/* Background image */}
       <div className="absolute inset-0">
         <img
-          src="https://ujurcika.cz/wp-content/uploads/2025/03/Jurcik-7x10-2022-vyrez-3.jpg"
+          src="/images/Jurcik-7x10-2022-vyrez-3.jpg"
           alt="Kulturní zařízení U Jurčíka — budova restaurace"
           className="w-full h-full object-cover"
           loading="eager"

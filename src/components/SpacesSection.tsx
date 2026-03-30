@@ -2,22 +2,24 @@ const spaces = [
   {
     title: "Restaurace",
     desc: "Tradiční česká restaurace s přátelskou atmosférou a domácí kuchyní.",
-    image: "https://ujurcika.cz/wp-content/uploads/2025/03/Interier-2.jpg",
+    image: "/images/Interier-2.jpg",
   },
   {
     title: "Lovecký salonek",
     desc: "Rodinné oslavy a společenské akce v soukromí stylového salonku.",
-    image: "https://ujurcika.cz/wp-content/uploads/2025/03/Budova-Jurcik-JPG.jpg",
+    image:
+      "/images/Budova-Jurcik-JPG.jpg",
   },
   {
     title: "Prosklená veranda",
     desc: "Posezení u dobrého jídla na prosklené a v zimě vyhřívané verandě.",
-    image: "https://ujurcika.cz/wp-content/uploads/2025/03/Veranda5-1.jpg",
+    image: "/images/Veranda5-1.jpg",
   },
   {
     title: "Letní zahrádka",
     desc: "Příjemné posezení ve stínu pod téměř stoletými vzrostlými kaštany.",
-    image: "https://ujurcika.cz/wp-content/uploads/2025/03/Jurcik-7x10-2022-vyrez-3.jpg",
+    image:
+      "/images/Jurcik-7x10-2022-vyrez-3.jpg",
   },
 ];
 
@@ -37,7 +39,10 @@ const SpacesSection = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {spaces.map((space, i) => (
-            <div key={i} className="group relative overflow-hidden cursor-pointer">
+            <div
+              key={i}
+              className="group relative overflow-hidden cursor-pointer"
+            >
               <div className="aspect-[3/4] overflow-hidden">
                 <img
                   src={space.image}

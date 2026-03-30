@@ -272,10 +272,10 @@ const menuDataPL: Record<string, MenuItem[]> = {
 };
 
 const foodImages = [
-  "https://ujurcika.cz/wp-content/uploads/elementor/thumbs/Veprove-koleno-WEB-2-r3a1okxrw5l63ehg8tqmk8750qwfujlef9qb05skb4.jpg",
-  "https://ujurcika.cz/wp-content/uploads/elementor/thumbs/Cesnekacka2-r3a1okxrw5l63ehg8tqmk8750qwfujlef9qb05skb4.jpg",
-  "https://ujurcika.cz/wp-content/uploads/elementor/thumbs/2023-06-17-1-r3a1okxrw5l63ehg8tqmk8750qwfujlef9qb05skb4.jpg",
-  "https://ujurcika.cz/wp-content/uploads/elementor/thumbs/Smazak-jurcik-r3a1okxrw5l63ehg8tqmk8750qwfujlef9qb05skb4.jpg",
+  "/images/veprove-koleno.jpg",
+  "/images/cesnekacka.jpg",
+  "/images/jidlo-1.jpg",
+  "/images/smazak.jpg",
 ];
 
 const MenuSection = () => {
