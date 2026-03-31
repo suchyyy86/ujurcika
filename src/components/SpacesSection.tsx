@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 
 const spaces = [
   {
@@ -30,7 +30,6 @@ const spaces = [
       "/images/veranda-2025.jpg",
       "/images/veranda-2.jpg",
       "/images/veranda-4.jpg",
-      "/images/veranda-6.jpg",
       "/images/veranda-7.jpg",
     ],
   },
@@ -46,27 +45,18 @@ const spaces = [
   },
 ];
 
-const INTERVAL = 4000;
+const INTERVAL = 5000;
 
-function SpaceCard({
-  space,
-  offset,
-}: {
-  space: (typeof spaces)[0];
-  offset: number;
-}) {
+function SpaceCard({ space }: { space: (typeof spaces)[0] }) {
   const [index, setIndex] = useState(0);
   const count = space.images.length;
 
-  const next = useCallback(
-    () => setIndex((i) => (i + 1) % count),
-    [count],
-  );
-
   useEffect(() => {
-    const id = setInterval(next, INTERVAL + offset);
+    const id = setInterval(() => {
+      setIndex((i) => (i + 1) % count);
+    }, INTERVAL);
     return () => clearInterval(id);
-  }, [next, offset]);
+  }, [count]);
 
   return (
     <div className="group relative overflow-hidden">
@@ -89,16 +79,16 @@ function SpaceCard({
 
       {/* Dots */}
       {count > 1 && (
-        <div className="absolute top-4 left-0 right-0 flex justify-center gap-1.5 z-10">
+        <div className="absolute top-4 left-0 right-0 flex justify-center gap-2 z-10">
           {space.images.map((_, i) => (
             <button
               key={i}
               onClick={() => setIndex(i)}
               aria-label={`Foto ${i + 1} z ${count}`}
-              className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+              className={`h-2 rounded-full transition-all duration-300 ${
                 i === index
-                  ? "bg-gold w-4"
-                  : "bg-cream/40 hover:bg-cream/70"
+                  ? "bg-white w-5"
+                  : "bg-white/40 w-2 hover:bg-white/70"
               }`}
             />
           ))}
@@ -107,10 +97,10 @@ function SpaceCard({
 
       {/* Text */}
       <div className="absolute bottom-0 left-0 right-0 p-6">
-        <h3 className="font-display italic text-xl text-cream mb-2">
+        <h3 className="font-display italic text-xl text-cream mb-1 [text-shadow:0_2px_8px_rgba(0,0,0,0.6)]">
           {space.title}
         </h3>
-        <p className="font-body text-sm text-cream/70 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <p className="font-body text-sm text-cream/70 leading-relaxed [text-shadow:0_1px_4px_rgba(0,0,0,0.5)]">
           {space.desc}
         </p>
       </div>
@@ -133,8 +123,8 @@ const SpacesSection = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {spaces.map((space, i) => (
-            <SpaceCard key={space.title} space={space} offset={i * 800} />
+          {spaces.map((space) => (
+            <SpaceCard key={space.title} space={space} />
           ))}
         </div>
       </div>

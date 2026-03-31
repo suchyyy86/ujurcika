@@ -46,6 +46,8 @@ const StorySection = () => {
             src="/images/Rozvoj-a-Jurcik-bez-napisu-1024x649.jpg"
             alt="Sídliště Rozvoj a hospoda Na Rozvoji"
             className="w-full max-h-[500px] object-cover"
+            width={1024}
+            height={649}
             loading="lazy"
           />
         </div>
@@ -97,7 +99,7 @@ const StorySection = () => {
             />
             <div className="absolute bottom-6 left-6 bg-dark/80 px-4 py-2">
               <p className="font-display italic text-cream text-sm">
-                Divadelní 148/2, Český Těšín
+                U Jurčíka, 2025
               </p>
             </div>
           </div>

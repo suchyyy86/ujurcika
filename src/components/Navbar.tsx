@@ -32,7 +32,7 @@ const Navbar = () => {
     <>
       {/* Menu overlay — outside nav to avoid backdrop-filter containing block issue */}
       <div
-        className={`fixed inset-0 z-[55] bg-dark flex flex-col items-center justify-center gap-8 transition-opacity duration-500 ${
+        className={`fixed inset-0 z-[55] bg-dark flex flex-col items-center justify-center gap-6 pt-16 transition-opacity duration-500 ${
           isOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -43,7 +43,7 @@ const Navbar = () => {
             key={link.href}
             href={link.href}
             onClick={() => setIsOpen(false)}
-            className="font-display text-3xl md:text-4xl text-cream/90 hover:text-gold transition-colors"
+            className="font-display text-2xl md:text-4xl text-cream/90 hover:text-gold transition-colors"
           >
             {link.label}
           </a>
@@ -83,7 +83,7 @@ const Navbar = () => {
           {/* Hamburger */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-cream hover:text-gold transition-colors"
+            className="text-cream hover:text-gold transition-colors p-2 -ml-2"
             aria-label={isOpen ? "Zavřít menu" : "Otevřít menu"}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -109,12 +109,15 @@ const Navbar = () => {
             Obědové menu
           </a>
 
-          {/* Mobile: just kontakt link */}
+          {/* Mobile: Obědové menu CTA — icon-only to avoid logo overlap */}
           <a
-            href="#kontakt"
-            className="md:hidden text-xs font-body uppercase tracking-[0.15em] text-gold hover:text-cream transition-colors"
+            href="https://www.menicka.cz/4947-kulturni-zarizeni-u-jurcika.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="md:hidden inline-flex items-center justify-center w-9 h-9 bg-gold/90 hover:bg-gold text-dark transition-all rounded-sm"
+            aria-label="Obědové menu"
           >
-            Kontakt
+            <UtensilsCrossed size={16} />
           </a>
         </div>
       </nav>

@@ -26,7 +26,7 @@ const ContactSection = () => {
             </h3>
             <address className="not-italic">
               <p className="font-body text-base text-warm-gray leading-relaxed">
-                Divadelní 148/2
+                Rozvojová 748/2
               </p>
               <p className="font-body text-base text-warm-gray leading-relaxed">
                 737 01 Český Těšín
@@ -91,14 +91,14 @@ const ContactSection = () => {
           {/* Map embed */}
           <div className="overflow-hidden bg-dark/5 min-h-[300px]">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2578.8!2d18.6275!3d49.7468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4714b4a8e63f2d9f%3A0x9e0c04a1c926e71!2sDivadeln%C3%AD%20148%2F2%2C%20737%2001%20%C4%8Cesk%C3%BD%20T%C4%9B%C5%A1%C3%ADn!5e0!3m2!1scs!2scz!4v1"
+              src="https://maps.google.com/maps?q=%C4%8Cesk%C3%BD%20T%C4%9B%C5%A1%C3%ADn%20Rozvojova%20748&t=m&z=17&output=embed&iwloc=near"
               width="100%"
               height="100%"
               style={{ border: 0, minHeight: "300px" }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Mapa — U Jurčíka, Divadelní 148/2, Český Těšín"
+              title="Mapa — U Jurčíka, Rozvojová 748, Český Těšín"
             />
           </div>
 

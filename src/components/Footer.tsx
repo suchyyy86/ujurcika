@@ -58,7 +58,7 @@ const Footer = () => {
             </p>
             <address className="not-italic">
               <p className="font-body text-sm text-cream/80 mb-1">
-                Divadelní 148/2
+                Rozvojová 748/2
               </p>
               <p className="font-body text-sm text-cream/80 mb-4">
                 737 01 Český Těšín
